@@ -4,6 +4,8 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import Singleproduct from './Singleproduct'
 import Login from './Login'
 import Registration from './Registration'
+import { Provider } from 'react-redux'
+import mystore from './store/store'
 
 
 export default function App() {
@@ -19,6 +21,10 @@ export default function App() {
 
         </Routes>
       </Router>
+
+      <Provider store={mystore}>
+
+      </Provider>
     </div>
   )
 }
