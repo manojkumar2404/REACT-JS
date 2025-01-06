@@ -92,7 +92,6 @@ export default function Myproduct() {
     }
   };
 
-  let nav = useNavigate()
   
   const auth = getAuth(firebaseApp);
  
@@ -106,6 +105,7 @@ export default function Myproduct() {
     }
   };
 
+  let nav = useNavigate()
   
   const datanavigate =(pid)=>{
     nav('/product/pid')

@@ -16,11 +16,17 @@ const initialState = {
            reducers: {
               //action 
             additemwish(state,action){
-              
+              const newItemId = action.payload.id;
+              const existingItem = state.wishlistItems.find((item) => item.id === newItemId);
+
+              if (!existingItem) {
+                state.wishlistItems.push(action.payload);
+                }
             },
+            
 
             removeitemwish(state,action){
-
+              state.wishlistItems = state.wishlistItems.filter((item) => item.id !== action.payload);
             },
 
             incrementqtywish(state,action){

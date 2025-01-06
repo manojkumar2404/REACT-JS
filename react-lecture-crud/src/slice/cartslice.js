@@ -18,37 +18,45 @@ const initialState = {
               //action 
             additem(state,action){
               
-              // eslint-disable-next-line no-undef
-              newitem = action.payload.id;
+              const newitem = action.payload.id;
 
-              // eslint-disable-next-line no-undef
-              existingid = state.cartitem.find(item => item.id == newitem)
+              const existingid = state.cartitem.find(item => item.id == newitem)
 
-              // eslint-disable-next-line no-undef
               if (existingid) {
-                // eslint-disable-next-line no-undef
                 existingid.quantity++
               } else {
                 state.cartitem.push(action.payload)
               }
             },
 
+            //cartitem id or payload id dont same   for delete
+
             removeitem(state,action){
 
-              // eslint-disable-next-line no-undef
-              state.cartitem = state.cartitem.filter(item => item.id !== newitem)
+              state.cartitem = state.cartitem.filter(item => item.id !== action.payload)
             },
 
             incrementqty(state,action){
-
+              state.cartitem.map(item =>{
+                if (item.id == action.payload) {
+                  item.quantity++
+                } 
+                return item
+              })
             },
 
             decrementqty(state,action){
-
+              state.cartitem.map(item =>{
+                if (item.id == action.payload) {
+                  item.quantity--
+                } 
+                return item
+              })
             },
             
+            
             togglecart(state,action){
-
+              state.cartopen = action.payload;
             }
 
            }
